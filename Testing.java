@@ -145,47 +145,47 @@ public class Testing {
             if (p1.val != p2.val) {
                 return false;
             }
-            p1=p1.next;
-            p2=p2.next;
+            p1 = p1.next;
+            p2 = p2.next;
         }
         return true;
     }
 
-
     static ListNode ref;
+
     public static boolean isPalindrome2(ListNode head) {
-        ref = head;        
+        ref = head;
         return check(head);
     }
-    
-    public static boolean check(ListNode node){
-        if(node == null) return true;
+
+    public static boolean check(ListNode node) {
+        if (node == null)
+            return true;
         boolean ans = check(node.next);
-        boolean isEqual = (ref.val == node.val)? true : false; 
+        boolean isEqual = (ref.val == node.val) ? true : false;
         ref = ref.next;
         return ans & isEqual;
     }
 
     public static boolean isPalindrome(String s) {
-        System.out.println(s);
-        if(s == "" || s.length() == 1)
+        if (s == "" || s.length() == 1)
             return true;
         char[] temp = s.toCharArray();
-        int i = 0, j = temp.length-1;
+        int i = 0, j = temp.length - 1;
         boolean flag;
-        while(i<temp.length && j>=0){
+        while (i < temp.length && j >= 0) {
             flag = false;
-            if(!Character.isLetter(temp[i])){
+            if (!Character.isLetter(temp[i])) {
                 flag = true;
                 i++;
             }
-            if(!Character.isLetter(temp[i])){
+            if (!Character.isLetter(temp[j])) {
                 flag = true;
                 j--;
             }
-            if(flag) continue;
-            System.out.print(temp[j]);
-            if(Character.toLowerCase(temp[i]) != Character.toLowerCase(temp[j]))
+            if (flag)
+                continue;
+            if (Character.toLowerCase(temp[i]) != Character.toLowerCase(temp[j]))
                 return false;
             i++;
             j--;
