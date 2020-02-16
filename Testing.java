@@ -165,16 +165,38 @@ public class Testing {
         ref = ref.next;
         return ans & isEqual;
     }
+
+    public static boolean isPalindrome(String s) {
+        System.out.println(s);
+        if(s == "" || s.length() == 1)
+            return true;
+        char[] temp = s.toCharArray();
+        int i = 0, j = temp.length-1;
+        boolean flag;
+        while(i<temp.length && j>=0){
+            flag = false;
+            if(!Character.isLetter(temp[i])){
+                flag = true;
+                i++;
+            }
+            if(!Character.isLetter(temp[i])){
+                flag = true;
+                j--;
+            }
+            if(flag) continue;
+            System.out.print(temp[j]);
+            if(Character.toLowerCase(temp[i]) != Character.toLowerCase(temp[j]))
+                return false;
+            i++;
+            j--;
+        }
+        return true;
+    }
+
     // #endregion
 
     public static void main(String[] args) {
-        
-        ListNode x = stringToListNode("[1,1,2,2,3,3,5,4,4,3,3,2,2,1,1]");
-        prettyPrintLinkedList(x);
-        // x = reverseLinkedList(x);
-        // x = reverseLinkedList(x);
-        // prettyPrintLinkedList(x);
-        System.out.println(isPalindrome2(x));
+        System.out.println("\n" + isPalindrome("A man, a plan, a canal: Panama"));
     }
 }
 
