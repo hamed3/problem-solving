@@ -1,4 +1,5 @@
 public class Testing {
+    private Testing() throws InterruptedException {}
     // #region methods
     public static void merge(int[] a, int m, int[] b, int n) {
         int start = m + n - 1;
@@ -175,11 +176,11 @@ public class Testing {
         boolean flag;
         while (i < temp.length && j >= 0) {
             flag = false;
-            if (!Character.isLetter(temp[i])) {
+            if (!Character.isLetterOrDigit(temp[i])) {
                 flag = true;
                 i++;
             }
-            if (!Character.isLetter(temp[j])) {
+            if (!Character.isLetterOrDigit(temp[j])) {
                 flag = true;
                 j--;
             }
@@ -193,10 +194,34 @@ public class Testing {
         return true;
     }
 
+    public static boolean validPalindrome(String s) {
+        int i = 0, j = s.length()-1;
+        while(i<j){
+            if(s.charAt(i) != s.charAt(j)){
+                return isPalindrome(s,i+1,j) || isPalindrome(s,i,j-1);
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
+    public static boolean isPalindrome(String s,int i,int j){
+        while(i<j){
+            if(s.charAt(i) != s.charAt(j)){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
     // #endregion
 
-    public static void main(String[] args) {
-        System.out.println("\n" + isPalindrome("A man, a plan, a canal: Panama"));
+    public static void main(String[] args) throws InterruptedException {
+        Thread.sleep(1000);
+        System.out.println("\n" + validPalindrome("aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga"));
     }
 }
 
