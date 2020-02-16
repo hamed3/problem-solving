@@ -1,5 +1,5 @@
 public class Testing {
-    private Testing() throws InterruptedException {}
+    // private Testing() throws InterruptedException {}
     // #region methods
     public static void merge(int[] a, int m, int[] b, int n) {
         int start = m + n - 1;
@@ -220,7 +220,7 @@ public class Testing {
     // #endregion
 
     public static void main(String[] args) throws InterruptedException {
-        Thread.sleep(1000);
+        // Thread.sleep(1000);
         System.out.println("\n" + validPalindrome("aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga"));
     }
 }
